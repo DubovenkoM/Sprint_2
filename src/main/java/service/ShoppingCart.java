@@ -13,7 +13,7 @@ public class ShoppingCart {
     public double getAllPrice() {
         double result = 0;
         for (Food foods : food) {
-            result = result + foods.getAmount() * foods.getPrice();
+            result += foods.getAmount() * foods.getPrice();
         }
         return result;
     }
@@ -24,8 +24,8 @@ public class ShoppingCart {
         for (Food foods : food) {
             double price = foods.getAmount() * foods.getPrice();
             double discount = foods.getDiscount();
-            price = price * (1 - discount / 100);
-            result = result + price;
+            price *= 1 - discount / 100;
+            result += price;
         }
         return result;
     }
@@ -35,7 +35,7 @@ public class ShoppingCart {
         double result = 0;
         for (Food foods : food) {
             if (foods.isVegetarian()) {
-                result = result + foods.getAmount() * foods.getPrice();
+                result += foods.getAmount() * foods.getPrice();
             }
         }
         return result;
